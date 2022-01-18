@@ -1,0 +1,14 @@
+piVersion: v1
+kind: Service
+metadata:
+  name: trips
+  labels:
+    app: trips
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8080
+    targetPort: 80
+    protocol: TCP
+  selector:
+    app: trips          
