@@ -25,9 +25,9 @@ spec:
         - containerPort: 80
         env:
         - name: USERPROFILE_API_ENDPOINT
-          value: "https://userprofile:8080"
+          value: "http://userprofile:8080"
         - name: TRIPS_API_ENDPOINT
-          value: "https://trips:8080"
+          value: "http://trips:8080"
 ---
 apiVersion: v1
 kind: Service
@@ -36,7 +36,7 @@ metadata:
   labels:
     app: tripviewer
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   ports:
   - port: 8080
     targetPort: 80
