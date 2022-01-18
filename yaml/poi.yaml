@@ -28,6 +28,8 @@ spec:
           value: "Production"
         - name: SQL_SERVER
           value: "sqlserveryel3358.database.windows.net"
+        - name: SQL_USER
+          value: "sqladminyEl3358"
         - name: SQL_PASSWORD
           valueFrom:
             secretKeyRef:
