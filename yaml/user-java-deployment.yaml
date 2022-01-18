@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: user-java
+  name: user-java
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-java
+  template:
+    metadata:
+      labels:
+        app: user-java
+    spec:
+      containers:
+      - image: registryyel3358.azurecr.io/tripinsights/user-java:1.0
+        name: user-java
+        env:
+        - name: SQL_USER
+          valueFrom:
+            secretKeyRef:
+              name: sql.user
+              key: SQL_USER
+        - name: SQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sql.password
+              key: SQL_PASSWORD
+        - name: SQL_SERVER
+          valueFrom:
+            secretKeyRef:
+              name: sql.server
+              key: SQL_SERVER
