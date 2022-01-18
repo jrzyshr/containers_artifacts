@@ -28,6 +28,11 @@ spec:
           value: "/secrets"
         - name: SQL_SERVER
           value: "sqlserveryel3358.database.windows.net"
+        - name: SQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: sql.password
+              key: SQL_PASSWORD
         - name: SQL_DBNAME
           value: "mydrivingDB"
         - name: SQL_USER
