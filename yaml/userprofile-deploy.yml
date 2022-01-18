@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: userprofile
+  labels:
+    app: userprofile
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: userprofile
+  template:
+    metadata:
+      labels:
+        app: userprofile
+    spec:
+      containers:
+      - name: userprofile
+        image: registryyel3358.azurecr.io/tripinsights/userprofile:1.0
+        resources:
+          requests:
+            cpu: 500m
+            memory: 128Mi
+        ports:
+        - containerPort: 80
+        env:
+        - name: CONFIG_FILES_PATH
+          value: "/secrets"
+        - name: SQL_SERVER
+          value: "sqlserveryel3358"
+        - name: SQL_DBNAME
+          value: "mydrivingDB"
+        - name: SQL_USER
+          value: "sqladmin"
