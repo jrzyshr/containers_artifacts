@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: poi
+  name: poi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: poi
+  template:
+    metadata:
+      labels:
+        app: poi
+    spec:
+      containers:
+      - image: registryyel3358.azurecr.io/tripinsights/poi:1.0
+        name: poi
+        resources: 
+          requests:
+            cpu: 500m
+            memory: 128Mi
+        ports:
+        - containerPort: 3000
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: "Production"
