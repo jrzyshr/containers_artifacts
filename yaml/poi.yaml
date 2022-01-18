@@ -22,12 +22,17 @@ spec:
             cpu: 500m
             memory: 128Mi
         ports:
-        - containerPort: 3000
+        - containerPort: 80
         env:
         - name: ASPNETCORE_ENVIRONMENT
           value: "Production"
         - name: SQL_SERVER
           value: "sqlserveryel3358.database.windows.net"
+        - name: SQL_PASSWORD
+          valueFrom:
+          secretKeyRef:
+            name: sql.password
+            key: SQL_PASSWORD
 ---
 apiVersion: v1
 kind: Service
