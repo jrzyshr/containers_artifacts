@@ -34,4 +34,4 @@ spec:
         - name: SQL_DBNAME
           value: "mydrivingDB"
         - name: SQL_USER
-          value: "sqladmin"
+          value: "sqladminyEl3358"
