@@ -30,9 +30,9 @@ spec:
           value: "sqlserveryel3358.database.windows.net"
         - name: SQL_PASSWORD
           valueFrom:
-          secretKeyRef:
-            name: sql.password
-            key: SQL_PASSWORD
+            secretKeyRef:
+              name: sql.password
+              key: SQL_PASSWORD
 ---
 apiVersion: v1
 kind: Service
