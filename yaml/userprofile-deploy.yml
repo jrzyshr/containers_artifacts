@@ -24,8 +24,6 @@ spec:
         ports:
         - containerPort: 80
         env:
-        - name: CONFIG_FILES_PATH
-          value: "/secrets"
         - name: SQL_SERVER
           value: "sqlserveryel3358.database.windows.net"
         - name: SQL_PASSWORD
