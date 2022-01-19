@@ -4,6 +4,7 @@ metadata:
   name: trips
   labels:
     app: trips
+  namespace: api
 spec:
   replicas: 1
   selector:

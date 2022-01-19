@@ -4,6 +4,7 @@ metadata:
   name: userprofile
   labels:
     app: userprofile
+  namespace: api
 spec:
   type: ClusterIP
   ports:

@@ -4,6 +4,7 @@ metadata:
   name: trips
   labels:
     app: trips
+  namespace: api
 spec:
   type: ClusterIP
   ports:

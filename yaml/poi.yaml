@@ -4,6 +4,7 @@ metadata:
   labels:
     app: poi
   name: poi
+  namespace: api
 spec:
   replicas: 1
   selector:
@@ -42,6 +43,7 @@ metadata:
   name: poi
   labels:
     app: poi
+  namespace: api
 spec:
   type: ClusterIP
   ports:
