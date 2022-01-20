@@ -18,19 +18,14 @@ spec:
       containers:
       - image: registryyel3358.azurecr.io/tripinsights/user-java:1.0
         name: user-java
-        env:
-        - name: SQL_USER
-          valueFrom:
-            secretKeyRef:
-              name: sql.user
-              key: SQL_USER
-        - name: SQL_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: sql.password
-              key: SQL_PASSWORD
-        - name: SQL_SERVER
-          valueFrom:
-            secretKeyRef:
-              name: sql.server
-              key: SQL_SERVER
+        volumeMounts:
+        - name: my-az-kv-secrets
+          mountPath: "/mnt/secrets-store"
+          readOnly: true
+      volumes:
+      - name: my-az-kv-secrets
+        csi:
+          driver: secrets-store.csi.k8s.io
+          readOnly: true
+          volumeAttributes:
+            secretProviderClass: "azure-tripinsightskv-env"

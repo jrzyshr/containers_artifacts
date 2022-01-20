@@ -31,11 +31,17 @@ spec:
           value: "sqlserveryel3358.database.windows.net"
         - name: SQL_USER
           value: "sqladminyEl3358"
-        - name: SQL_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: sql.password
-              key: SQL_PASSWORD
+        volumeMounts:
+        - name: my-az-kv-secrets
+          mountPath: "/mnt/secrets-store"
+          readOnly: true
+      volumes:
+      - name: my-az-kv-secrets
+        csi:
+          driver: secrets-store.csi.k8s.io
+          readOnly: true
+          volumeAttributes:
+            secretProviderClass: "azure-tripinsightskv-env"
 ---
 apiVersion: v1
 kind: Service
