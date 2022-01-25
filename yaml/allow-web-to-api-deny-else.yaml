@@ -1,0 +1,12 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: allow-web-to-api-deny-else
+  namespace: api
+spec:
+  podSelector: {}
+  ingress:
+    - from:
+      - namespaceSelector:     # chooses all pods in namespaces labelled with team=operations
+          matchLabels:
+            purpose: web
