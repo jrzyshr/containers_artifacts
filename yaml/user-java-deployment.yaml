@@ -20,7 +20,7 @@ spec:
         name: user-java
         volumeMounts:
         - name: my-az-kv-secrets
-          mountPath: "/mnt/secrets-store"
+          mountPath: "/secrets"
           readOnly: true
       volumes:
       - name: my-az-kv-secrets
