@@ -16,7 +16,7 @@ spec:
         app: tripviewer
     spec:
       containers:
-      - image: registryyel3358.azurecr.io/tripinsights/tripviewer:1.0
+      - image: registryyel3358.azurecr.io/tripviewer2:1.0
         name: tripviewer
         resources: 
           requests:
@@ -29,6 +29,8 @@ spec:
           value: "http://userprofile.api:8080"
         - name: TRIPS_API_ENDPOINT
           value: "http://trips.api:8080"
+        - name: WCF_ENDPOINT
+          value: "http://wcf.api"
 ---
 apiVersion: v1
 kind: Service
